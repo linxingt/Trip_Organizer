@@ -118,7 +118,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(TRIP_CITY, trip.getCity());
         values.put(TRIP_START, trip.getStartDate());
         values.put(TRIP_END, trip.getEndDate());
-        return database.update(TABLE_TRIP, values, TRIP_ID + " = ?", new String[] { String.valueOf(trip.getId()) });
+        return database.update(TABLE_TRIP, values, TRIP_ID + " = ?", new String[]{String.valueOf(trip.getId())});
     }
 
     public int updatePlace(Place place) {
@@ -132,29 +132,75 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(PLACE_PHONE, place.getPhone());
         values.put(PLACE_PHOTO, place.getPhoto());
         values.put(PLACE_STATUS, place.getIsVisited());
-        return database.update(TABLE_PLACE, values, PLACE_ID + " = ?", new String[] { String.valueOf(place.getId()) });
+        return database.update(TABLE_PLACE, values, PLACE_ID + " = ?", new String[]{String.valueOf(place.getId())});
     }
 
     // 3. Lire tout (Read)
     public Cursor getAllTrips() {
-        String[] projection = { TRIP_ID, TRIP_CITY, TRIP_START, TRIP_END };
+        String[] projection = {TRIP_ID, TRIP_CITY, TRIP_START, TRIP_END};
         Cursor cursor = database.query(TABLE_TRIP, projection, null, null, null, null, null, null);
         return cursor;
     }
 
+    // Récupérer un Trip par son ID
+    public Trip getTripById(long id) {
+        Cursor cursor = database.query(TABLE_TRIP, null, TRIP_ID + " = ?", new String[]{String.valueOf(id)}, null, null, null);
+        Trip trip = null;
+        if (cursor != null && cursor.moveToFirst()) {
+            trip = new Trip(
+                    cursor.getLong(cursor.getColumnIndexOrThrow(TRIP_ID)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(TRIP_CITY)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(TRIP_START)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(TRIP_END))
+            );
+            cursor.close();
+        }
+        return trip;
+    }
+
+    // Récupérer un Place par son ID
+    public Place getPlaceById(long id) {
+        Cursor cursor = database.query(TABLE_PLACE, null, PLACE_ID + " = ?", new String[]{String.valueOf(id)}, null, null, null);
+        Place place = null;
+        if (cursor != null && cursor.moveToFirst()) {
+            place = new Place(
+                    cursor.getLong(cursor.getColumnIndexOrThrow(PLACE_ID)),
+                    cursor.getLong(cursor.getColumnIndexOrThrow(PLACE_TRIP_ID)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(PLACE_TITLE)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(PLACE_DESC)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(PLACE_DATE)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(PLACE_HOUR)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(PLACE_ADDRESS)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(PLACE_PHONE)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(PLACE_PHOTO)),
+                    cursor.getInt(cursor.getColumnIndexOrThrow(PLACE_STATUS))
+            );
+            cursor.close();
+        }
+        return place;
+    }
+
+    // Récupérer tous les lieux (Places) d'un voyage (Trip) spécifique
+    public Cursor getAllPlacesByTripId(long tripId) {
+        String[] projection = {PLACE_ID, PLACE_TRIP_ID, PLACE_TITLE, PLACE_DESC, PLACE_DATE, PLACE_HOUR, PLACE_ADDRESS,
+                PLACE_PHONE, PLACE_PHOTO, PLACE_STATUS};
+        return database.query(TABLE_PLACE, projection, PLACE_TRIP_ID + " = ?", new String[]{String.valueOf(tripId)}, null, null, null);
+    }
+
+
     public Cursor getAllPlaces() {
-        String[] projection = { PLACE_ID, PLACE_TRIP_ID, PLACE_TITLE, PLACE_DESC, PLACE_DATE, PLACE_HOUR, PLACE_ADDRESS,
-                PLACE_PHONE, PLACE_PHOTO, PLACE_STATUS };
-        Cursor cursor = database.query(TABLE_TRIP, projection, null, null, null, null, null, null);
+        String[] projection = {PLACE_ID, PLACE_TRIP_ID, PLACE_TITLE, PLACE_DESC, PLACE_DATE, PLACE_HOUR, PLACE_ADDRESS,
+                PLACE_PHONE, PLACE_PHOTO, PLACE_STATUS};
+        Cursor cursor = database.query(TABLE_PLACE, projection, null, null, null, null, null, null);
         return cursor;
     }
 
     // 4. Supprimer (Delete)
     public void deleteTrip(long id) {
-        database.delete(TABLE_TRIP, TRIP_ID + " = ?", new String[] { String.valueOf(id) });
+        database.delete(TABLE_TRIP, TRIP_ID + " = ?", new String[]{String.valueOf(id)});
     }
 
     public void deletePlace(long id) {
-        database.delete(TABLE_PLACE, PLACE_ID + " = ?", new String[] { String.valueOf(id) });
+        database.delete(TABLE_PLACE, PLACE_ID + " = ?", new String[]{String.valueOf(id)});
     }
 }
