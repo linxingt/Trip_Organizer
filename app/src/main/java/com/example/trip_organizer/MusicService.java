@@ -16,8 +16,9 @@ public class MusicService extends Service {
         if (player == null) {
             player = MediaPlayer.create(this, R.raw.towards_the_clouds);
             player.setLooping(true);
-            player.start();
-        } else if (!player.isPlaying()) {
+        }
+            // On ne lance start() QUE si ce n'est pas déjà en train de jouer
+        if (!player.isPlaying()) {
             player.start();
         }
         return START_STICKY;
@@ -25,11 +26,13 @@ public class MusicService extends Service {
 
     @Override
     public void onDestroy() {
-        super.onDestroy();
         if (player != null) {
-            player.stop();
+            if (player.isPlaying()) {
+                player.stop();
+            }
             player.release();
             player = null;
         }
+        super.onDestroy();
     }
 }

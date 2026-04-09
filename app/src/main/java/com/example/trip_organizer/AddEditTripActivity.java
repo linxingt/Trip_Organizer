@@ -200,7 +200,7 @@ public class AddEditTripActivity extends AppCompatActivity {
 
             Toast.makeText(this, "Voyage créé/modifié avec succès !", Toast.LENGTH_SHORT).show();
             // Utilisation des Intents pour la navigation
-            Intent intent = new Intent(AddEditTripActivity.this, ListPlaceActivity.class);
+            Intent intent = new Intent(this, ListPlaceActivity.class);
             intent.putExtra("TRIP_ID", tripId);
             startActivity(intent);
         } else {

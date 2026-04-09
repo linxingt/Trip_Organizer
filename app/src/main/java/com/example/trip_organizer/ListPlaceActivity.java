@@ -66,6 +66,7 @@ public class ListPlaceActivity extends AppCompatActivity {
             placeList.clear(); // On vide la liste avant de la recharger
         }
 
+        tripId = getIntent().getLongExtra("TRIP_ID", -1);
         Cursor cursor = dbHelper.getAllPlacesByTripId(tripId);
 
         if (cursor != null && cursor.moveToFirst()) {
@@ -96,6 +97,7 @@ public class ListPlaceActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
+        tripId = getIntent().getLongExtra("TRIP_ID", -1);
         if (id == R.id.action_add_place) {
             Intent intent = new Intent(this, AddEditPlaceActivity.class);
             intent.putExtra("TRIP_ID", tripId);

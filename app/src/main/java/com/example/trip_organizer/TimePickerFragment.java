@@ -1,6 +1,5 @@
 package com.example.trip_organizer;
 
-import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
