@@ -15,7 +15,7 @@ public class Place implements Parcelable {
     private String photo;
     private int isVisited; // 0 = faux, 1 = vrai pour SQLite
 
-    public Place(long tripId, String title, String description, String date, String address, String hour, String phone, String photo, int isVisited) {
+    public Place(long tripId, String title, String description, String date, String hour, String address, String phone, String photo, int isVisited) {
         this.tripId = tripId;
         this.title = title;
         this.description = description;

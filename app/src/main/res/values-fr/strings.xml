@@ -1,26 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Organisateur de Voyage</string>
+    <string name="title_list_place">Mes lieux à visiter</string>
 
     <string name="title_create_trip">Créer un Voyage</string>
+    <string name="title_edit_trip">Modifier un Voyage</string>
     <string name="hint_city">Ville</string>
 
     <string name="label_date">Date</string>
     <string name="label_time">Heure (Optionnel)</string>
     <string name="label_start_date">Date de début</string>
-    <string name="hint_date">JJ/MM/AAAA</string>
     <string name="label_end_date">Date de fin</string>
+    <string name="hint_date">JJ/MM/AAAA</string>
+    <string name="hint_time">hh:mm</string>
 
-    <string name="label_place_title">Titre</string>
-    <string name="label_place_desc">Description</string>
-    <string name="label_place_address">Adresse</string>
-    <string name="label_place_phone">Téléphone (Optionnel)</string>
-    <string name="btn_open_maps">Ouvrir dans Maps</string>
+    <string name="hint_place_title">Titre</string>
+    <string name="hint_place_desc">Description</string>
+    <string name="hint_place_address">Adresse</string>
+    <string name="hint_place_phone">Téléphone (Optionnel)</string>
+    <string name="btn_place_open_maps">Ouvrir dans Maps</string>
+    <string name="btn_place_dial">Composer</string>
+    <string name="btn_place_share">Partager</string>
+    <string name="btn_place_select_photo">Sélectionner une photo</string>
+    <string name="btn_place_visited">Marquer comme visitée</string>
+    <string name="btn_place_not_visited">Marquer comme non visité</string>
 
-    <string name="menu_add_place">Ajouter un lieu</string>
-    <string name="menu_settings">Paramètres</string>
+    <string name="menu_add">Ajouter</string>
+    <string name="menu_settings">Musique ON/OFF</string>
+    <string name="menu_notice">Préavis (7j/2j)</string>
+    <string name="popup_notif7">Notification 7 jours avant</string>
+    <string name="popup_notif2">Notification 2 jours avant</string>
     <string name="menu_edit">Modifier</string>
     <string name="menu_delete">Supprimer</string>
+    <string name="menu_cancel">Annuler</string>
     <string name="btn_save">Enregistrer</string>
     <string name="btn_pick">Choisir</string>
 

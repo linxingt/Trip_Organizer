@@ -5,12 +5,15 @@
 
     <item
         android:id="@+id/action_add_place"
-        android:title="@string/menu_add_place"
         android:icon="@android:drawable/ic_menu_add"
+        android:title="@string/menu_add"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_settings"
         android:title="@string/menu_settings"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/action_notif"
+        android:title="@string/menu_notice" />
 </menu>

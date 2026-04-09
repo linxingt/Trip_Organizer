@@ -17,7 +17,7 @@ public class Trip implements Parcelable {
         this.endDate = endDate;
     }
 
-    public Trip(long id, String city, String endDate, String startDate) {
+    public Trip(long id, String city, String startDate, String endDate) {
         this(city, startDate, endDate);
         this.id = id;
     }

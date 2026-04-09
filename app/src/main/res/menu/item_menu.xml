@@ -4,8 +4,10 @@
 
     <item
         android:id="@+id/action_edit_place"
-        android:title="@string/menu_edit" />
+        android:title="@string/menu_edit"
+        app:showAsAction="never" />
     <item
         android:id="@+id/action_delete_place"
-        android:title="@string/menu_delete" />
+        android:title="@string/menu_delete"
+        app:showAsAction="never"/>
 </menu>

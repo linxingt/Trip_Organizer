@@ -1,26 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">旅行管理器</string>
+    <string name="title_list_place">我的目的地列表</string>
 
     <string name="title_create_trip">新建旅程</string>
+    <string name="title_edit_trip">修改旅程</string>
     <string name="hint_city">城市名</string>
 
     <string name="label_date">日期</string>
     <string name="label_time">时间 (可选)</string>
     <string name="label_start_date">起始日期</string>
-    <string name="hint_date">JJ/MM/AAAA</string>
     <string name="label_end_date">结束日期</string>
+    <string name="hint_date">JJ/MM/AAAA</string>
+    <string name="hint_time">hh:mm</string>
 
-    <string name="label_place_title">标题</string>
-    <string name="label_place_desc">描述</string>
-    <string name="label_place_address">地址</string>
-    <string name="label_place_phone">电话 (可选)</string>
-    <string name="btn_open_maps">在地图中打开</string>
+    <string name="hint_place_title">标题</string>
+    <string name="hint_place_desc">描述</string>
+    <string name="hint_place_address">地址</string>
+    <string name="hint_place_phone">电话 (可选)</string>
+    <string name="btn_place_open_maps">在地图中打开</string>
+    <string name="btn_place_dial">拨号</string>
+    <string name="btn_place_share">分享</string>
+    <string name="btn_place_select_photo">选择照片</string>
+    <string name="btn_place_visited">标记为已游览</string>
+    <string name="btn_place_not_visited">标记为未游览</string>
 
-    <string name="menu_add_place">新建地点</string>
-    <string name="menu_settings">设置</string>
+    <string name="menu_add">新建</string>
+    <string name="menu_settings">音乐 开/关</string>
+    <string name="menu_notice">提前(1周/2天)通知</string>
+    <string name="popup_notif7">提前1周通知</string>
+    <string name="popup_notif2">提前2天通知</string>
     <string name="menu_edit">修改</string>
     <string name="menu_delete">删除</string>
+    <string name="menu_cancel">取消</string>
     <string name="btn_save">保存</string>
     <string name="btn_pick">选择</string>
 </resources>

@@ -87,6 +87,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         database.close();
     }
 
+    public boolean canEditTrip(long tripId) {
+        Cursor cursor = getAllPlacesByTripId(tripId);
+        boolean canEdit = (cursor.getCount() == 0);
+        cursor.close();
+        return canEdit;
+    }
+
     // --- OPERATIONS CRUD ---
 
     // 1. Ajouter (Create)
